@@ -7,7 +7,7 @@
 # Data acquisition
 #-------------------------------------------------------------------------------
 # CSV file sent through the hospital and separated for training and testing data
-df_train <- read.csv("df_train.csv")
+df_train <- read.csv("01.dataset/df_train.csv")
 
 
 # Knowing the data

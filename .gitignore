@@ -1,1 +1,6 @@
-{\rtf1}
+*.RData
+*.Rhistory
+20_99_predicting_medical_expenses/*.RData -r
+20_99_predicting_medical_expenses/*.Rhistory
+20_99_predicting_medical_expenses/01.dataset/*.RData -r
+20_99_predicting_medical_expenses/01.dataset/*.Rhistory
