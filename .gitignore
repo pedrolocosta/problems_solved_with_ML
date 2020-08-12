@@ -4,3 +4,5 @@
 20_99_predicting_medical_expenses/*.Rhistory
 20_99_predicting_medical_expenses/01.dataset/*.RData -r
 20_99_predicting_medical_expenses/01.dataset/*.Rhistory
+20_97_analysis_feelings_R/*.RData
+20_97_analysis_feelings_R/*.Rhistory
