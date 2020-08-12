@@ -20,13 +20,12 @@
 
 library(twitteR)
 library(httr)
-source('utils.R')
+source('02.src/utils.R')
 library(SnowballC)
 library(tm)
 library(Rstem)
 library(sentiment)
 library(ggplot2)
-
 library(RColorBrewer)
 library(wordcloud)
 
@@ -40,11 +39,11 @@ setup_twitter_oauth(key, secret, token, tokensecret)
 
 # Connection and acquisition of tweets
 #-------------------------------------------------------------------------------
-userTimeline("")
+userTimeline("seu_username")
 
 # Capturing tweets
 theme <- "machine learning"
-qtd_tweets <- 2000
+qtd_tweets <- 290
 language <- "pt"
 tweetdata = searchTwitter(theme, n = qtd_tweets, lang = language)
 head(tweetdata)
@@ -68,10 +67,9 @@ termo_por_documento = as.matrix(TermDocumentMatrix(tweetcorpus),
                                 control = list(stopwords = c(stopwords("portuguese"))))
 
 # Wordcloud, association between words and dendograma -------------------------- adicionar gráfico de barras
-
 # Generation a word cloud
 pal2 <- brewer.pal(8,"Dark2")
-png(paste("Reports/Nuvem de palavras para", theme ,".png"), width = 500, height = 500, res = 72)
+png(paste("03.reports/Nuvem de palavras para", theme ,".png"), width = 500, height = 500, res = 72)
 wordcloud(tweetcorpus, 
           min.freq = 2, 
           scale = c(5,1), 
@@ -133,18 +131,18 @@ sent_df = within(sent_df,
 # Plotting the results and saving in png format
 #-------------------------------------------------------------------------------
 # Emotions found
-png(paste("Reports/Grafico Emocao para expressão", theme ,".png"), width = 500, height = 500, res = 72)
+png(paste("03.reports/Gráfico das Emoções para expressão", theme ,".png"), width = 500, height = 500, res = 72)
 ggplot(sent_df, aes(x = emotion)) +
   geom_bar(aes(y = ..count.., fill = emotion)) +
   scale_fill_brewer(palette = "Dark2") +
-  labs(x = "Categorias", y = "Numero de Tweets")+
-  ggtitle(paste("Gráfico da emoção para a expressão:", theme))
+  labs(x = "Categorias de Sentimento", y = "Número de Tweets")+
+  ggtitle(paste("Gráfico das Emoções para a expressão:", theme))
 dev.off()
 
 # Polarity
-png(paste("Reports/Grafico Polaridade para expressão", theme ,".png"), width = 500, height = 500, res = 72)
+png(paste("03.reports/Gráfico de Polaridade para expressão", theme ,".png"), width = 500, height = 500, res = 72)
 ggplot(sent_df, aes(x=polarity)) +
   geom_bar(aes(y=..count.., fill=polarity)) +
   scale_fill_brewer(palette="RdGy") +
-  labs(x = "Categorias de Sentimento", y = "Numero de Tweets")
+  labs(x = "Categorias", y = "Número de Tweets")
 dev.off()
