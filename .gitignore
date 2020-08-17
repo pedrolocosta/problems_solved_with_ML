@@ -1,10 +1,14 @@
 00.Model
 *.RData -r
 *.Rhistory -r
+*.RData -r
+*.Rhistory -r
 20_99_predicting_medical_expenses/*.RData -r
 20_99_predicting_medical_expenses/*.Rhistory -r
 20_99_predicting_medical_expenses/01.dataset/*.RData -r
 20_99_predicting_medical_expenses/01.dataset/*.Rhistory
+20_98_predicting_credit_risk/*.RData -r
+20_98_predicting_credit_risk/*.Rhistory -r
 20_97_feelings_analysis_twitter_comments/*.RData -r
 20_97_feelings_analysis_twitter_comments/*.Rhistory -r
 20_97_feelings_analysis_twitter_comments/.RData -r
